@@ -91,3 +91,17 @@ Requires authentication.
 
 Returns mocked weather data with randomized temperature and conditions.  
 Weather data is cached per city for improved performance.
+
+## Integration Tests (External)
+
+The API must be running locally before executing the tests.
+
+### 1. Select runsettings in Visual Studio
+
+**Test → Configure Run Settings → Select Solution Wide runsettings file**  
+Choose: `local.runsettings`
+
+### 2. Run the tests
+
+Just run them normally from Test Explorer.  
+They will call the live API through `HttpClient`, similar to Postman.
