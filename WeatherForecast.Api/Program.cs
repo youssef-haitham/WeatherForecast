@@ -16,12 +16,15 @@ services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 
 //Services DI
 services.AddScoped<IAuthService, AuthService>();
+services.AddScoped<IWeatherService, WeatherService>();
 //Repositories DI
 services.AddScoped<IUserRepository, UserRepository>();
+services.AddScoped<IWeatherRepository, WeatherRepository>();
 //Providers DI
 services.AddScoped<IHashProvider, HashProvider>();
 services.AddScoped<ITokenProvider, TokenProvider>();
 
+services.AddMemoryCache();
 
 services.AddControllers();
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
